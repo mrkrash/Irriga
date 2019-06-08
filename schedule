@@ -1,0 +1,20 @@
+lawn = {
+hour = 6,
+minu = 10,
+amount = 20,
+mon = true,
+tue = true,
+wed = true,
+thu = true,
+fri = true,
+sat = true,
+sun = true
+}
+plants = {
+hour = 6,
+minu = 30,
+amount = 15,
+tue = true,
+fri = true,
+sat = true,
+}

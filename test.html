@@ -1,0 +1,37 @@
+<!DOCTYPE html><html dir='ltr' lang='it'><head><meta charset='utf-8'><title>Irriga</title>
+<style type='text/css'>.section { width: 350px; margin: 0 auto 20px; display: flow-root; } h1,h3, .btn { text-align: center; } body { background-color: #fff; } .label { float: left;
+	margin-right: 10px;
+	position: relative;
+	text-align: right;
+	width: 100px;} .input{ float: left; position: relative; width: 240px } button {padding: 10px 50px}</style>
+</head><body><h1>Irriga</h1>
+<div class='form'><form action='#' method='GET'>
+<div class='section'><h3>Prato</h3>
+<div class='label'>Ora</div><div class='input'><input name='lawnHour' type='number' value='"..lawnHour.."' min='0' max='23' /></div>
+<div class='label'>Minuti</div><div class='input'><input name='lawnMinu' type='number' value='"..lawnMinu.."' min='0' max='59' /></div>
+<div class='label'>Quanto</div><div class='input'><input name='lawnAmount' type='number' min='1' max='50' value='"..lawnAmount.."' /></div>
+<div class='label'>Giorni</div><div class='input'>
+<input name='lawnMon' type='checkbox' class='checkbox' value='mon'>Lun
+<input name='lawnTue' type='checkbox' class='checkbox' value='tue'>Mar
+<input name='lawnWed' type='checkbox' class='checkbox' value='wed'>Mer<br/>
+<input name='lawnThu' type='checkbox' class='checkbox' value='thu'>Gio
+<input name='lawnFri' type='checkbox' class='checkbox' value='fri'>Ven
+<input name='lawnSat' type='checkbox' class='checkbox' value='sat'>Sab<br/>
+<input name='lawnSun' type='checkbox' class='checkbox' value='sun'>Domenica
+</div></div><div class='separator'> </div>
+<div class='section'><h3>Piante</h3>
+<div class='label'>Ora</div><div class='input'><input name='plantsHour' type='number' value='"..plantsHour.."' min='0' max='23' /></div>
+<div class='label'>Minuti</div><div class='input'><input name='plantsMinu' type='number' value='"..plantsMinu.."' min='0' max='59' /></div>
+<div class='label'>Quanto</div><div class='input'><input name='plantsAmount' type='number' value='"..plantsAmount.."' min='1' max='50' /></div>
+<div class='label'>Giorni</div><div class='input'>
+<input name='plantsMon' type='checkbox' class='checkbox' value='mon'>Lun
+<input name='plantsTue' type='checkbox' class='checkbox' value='tue'>Mar
+<input name='plantsWed' type='checkbox' class='checkbox' value='wed'>Mer<br/>
+<input name='plantsThu' type='checkbox' class='checkbox' value='thu'>Gio
+<input name='plantsFri' type='checkbox' class='checkbox' value='fri'>Ven
+<input name='plantsSat' type='checkbox' class='checkbox' value='sat'>Sab<br/>
+<input name='plantsSun' type='checkbox' class='checkbox' value='sun'>Domenica
+</div></div>
+<div class='section btn'><button type='submit'>Invia</button></div>
+</form></div>
+</body></html>

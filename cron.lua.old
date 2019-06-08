@@ -1,0 +1,67 @@
+-- @Author: krash
+-- @Date:   2018-04-29 17:27:15
+-- @Last Modified by:   krash
+-- @Last Modified time: 2018-08-06 19:29:13
+
+-- 100 converts input 45 to 4.5 seconds.  handy for debuging.
+-- 60000 converts input 45 to 45 minuits
+--multiplyer = 100
+multiplyer = 60000
+cron.reset()
+
+function openGate(amount, zone)
+	tmr.stop(0)
+	gpio.write(zone, gpio.HIGH)
+	local duration = amount * multiplyer
+	tmr.alarm(0, duration, 0, function() gpio.write(zone, gpio.LOW) end)
+	send_email('Irriga funge', 'Ho dato acqua al settore ' .. zone .. ' per ' .. amount .. ' minuti')
+end
+if file.exists("settings.json") then
+	file.open("settings.json", "r")
+	local settings = sjson.decode(file.read())
+	file.close()
+	if settings['Luprato'] ~= nil then
+		cron.schedule(settings['Mprato'].." "..settings['Hprato'].." * * 1", function(e) openGate(settings['Qprato'], zoneLawn) end)
+	end
+	if settings['Maprato'] ~= nil then
+		cron.schedule(settings['Mprato'].." "..settings['Hprato'].." * * 2", function(e) openGate(settings['Qprato'], zoneLawn) end)
+	end
+	if settings['Meprato'] ~= nil then
+		cron.schedule(settings['Mprato'].." "..settings['Hprato'].." * * 3", function(e) openGate(settings['Qprato'], zoneLawn) end)
+	end
+	if settings['Giprato'] ~= nil then
+		cron.schedule(settings['Mprato'].." "..settings['Hprato'].." * * 4", function(e) openGate(settings['Qprato'], zoneLawn) end)
+	end
+	if settings['Veprato'] ~= nil then
+		cron.schedule(settings['Mprato'].." "..settings['Hprato'].." * * 5", function(e) openGate(settings['Qprato'], zoneLawn) end)
+	end
+	if settings['Saprato'] ~= nil then
+		cron.schedule(settings['Mprato'].." "..settings['Hprato'].." * * 6", function(e) openGate(settings['Qprato'], zoneLawn) end)
+	end
+	if settings['Doprato'] ~= nil then
+		cron.schedule(settings['Mprato'].." "..settings['Hprato'].." * * 0", function(e) openGate(settings['Qprato'], zoneLawn) end)
+	end
+	if settings['Lupiante'] ~= nil then
+		cron.schedule(settings['Mpiante'].." "..settings['Hpiante'].." * * 1", function(e) openGate(settings['Qpiante'], zonePlants) end)
+	end
+	if settings['Mapiante'] ~= nil then
+		cron.schedule(settings['Mpiante'].." "..settings['Hpiante'].." * * 2", function(e) openGate(settings['Qpiante'], zonePlants) end)
+	end
+	if settings['Mepiante'] ~= nil then
+		cron.schedule(settings['Mpiante'].." "..settings['Hpiante'].." * * 3", function(e) openGate(settings['Qpiante'], zonePlants) end)
+	end
+	if settings['Gipiante'] ~= nil then
+		cron.schedule(settings['Mpiante'].." "..settings['Hpiante'].." * * 4", function(e) openGate(settings['Qpiante'], zonePlants) end)
+	end
+	if settings['Vepiante'] ~= nil then
+		cron.schedule(settings['Mpiante'].." "..settings['Hpiante'].." * * 5", function(e) openGate(settings['Qpiante'], zonePlants) end)
+	end
+	if settings['Sapiante'] ~= nil then
+		cron.schedule(settings['Mpiante'].." "..settings['Hpiante'].." * * 6", function(e) openGate(settings['Qpiante'], zonePlants) end)
+	end
+	if settings['Dopiante'] ~= nil then
+		cron.schedule(settings['Mpiante'].." "..settings['Hpiante'].." * * 0", function(e) openGate(settings['Qpiante'], zonePlants) end)
+	end
+	settings = nil
+	collectgarbage()
+end
